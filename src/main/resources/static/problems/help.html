@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Application errors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="Harmony is a free responsive jekyll theme by Gayan Virajith and Maheshika Lakmali. Sourced on Github -  https://github.com/gayanvirajith/harmony">
+
+    <!-- Harmony styles -->
+    <!--         <link rel="stylesheet" type="text/css" href="/problem/assets/css/main.css"> -->
+    <link rel="stylesheet" type="text/css" href="problem.css">
+
+    <!-- Modernizr js -->
+    <!--         <script async src="/problem/assets/js/modernizr.js"></script>    -->
+    <script async src="modernizr.js"></script>
+
+    <!-- IE Fixes -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="theme-base-01">
+<header class="main-header">
+    <div class="wc-container">
+        <h1>Application error descriptions</h1>
+    </div>
+</header>
+<div class="page-content wc-container">
+    <div class="post">
+        <h2><a id="internal-server-error">Internal Server Error : 500</a></h2>
+        <div class="post">
+            <p>
+                The server encountered an unexpected condition
+                which prevented it from fulfilling the request.
+            </p>
+        </div>
+    </div>
+    <div class="post">
+        <h2><a id="constraint-violations">Constraint Violations : 400</a></h2>
+        <div class="post">
+            <p>
+                A problem that indicates a syntactically correct, yet semantically illegal request.
+                It’s <strong>not</strong> meant to be used for end-user input validation,
+                but for client developer convenience. Any constraint violation problem happening
+                in production should be considered a bug.
+            </p>
+        </div>
+    </div>
+    <div class="post">
+        <h2><a id="bad-request">Bad Request : 400</a></h2>
+        <div class="post">
+            <p>
+                The request could not be understood by the server due to malformed syntax.
+                The client SHOULD NOT repeat the request without modifications.
+            </p>
+        </div>
+    </div>
+    <div class="post">
+        <h2><a id="unauthorized">Unauthorized : 401</a></h2>
+        <div class="post">
+            <p>
+                The request requires user authentication.
+                The response MUST include a WWW-Authenticate header field (section 14.47) containing a challenge
+                applicable to the requested resource.
+                The client MAY repeat the request with a suitable Authorization header field (section 14.8).
+                If the request already included Authorization credentials,
+                then the 401 response indicates that authorization has been refused for those credentials.
+                If the 401 response contains the same challenge as the prior response,
+                and the user agent has already attempted authentication at least once,
+                then the user SHOULD be presented the entity that was given in the response,
+                since that entity might include relevant diagnostic information.
+                HTTP access authentication is explained in "HTTP Authentication:
+                Basic and Digest Access Authentication"
+            </p>
+        </div>
+    </div>
+    <div class="post">
+        <h2><a id="payment-required">Payment Required : 402</a></h2>
+        <div class="post">
+            <p>This code is reserved for future use.</p>
+        </div>
+    </div>
+    <div class="post">
+        <h2><a id="forbidden">Forbidden : 403</a></h2>
+        <div class="post">
+            <p>
+                The server understood the request, but is refusing to fulfill it.
+                Authorization will not help and the request SHOULD NOT be repeated.
+                If the request method was not HEAD and the server wishes to make
+                public why the request has not been fulfilled,
+                it SHOULD describe the reason for the refusal in the entity.
+                If the server does not wish to make this information available to the client,
+                the status code 404 (Not Found) can be used instead.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
