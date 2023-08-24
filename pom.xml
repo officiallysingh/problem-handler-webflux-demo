@@ -10,13 +10,13 @@
 
     <groupId>com.pchf</groupId>
     <artifactId>problem-handler-webflux-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
 
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
         <springdoc-openapi-starter-webflux-ui.version>2.1.0</springdoc-openapi-starter-webflux-ui.version>
-        <spring-boot-problem-autoconfigure.version>0.0.1.SNAPSHOT</spring-boot-problem-autoconfigure.version>
+        <spring-boot-problem-handler.version>1.0</spring-boot-problem-handler.version>
     </properties>
 
     <dependencyManagement>
@@ -150,9 +150,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.ksoot.problem-handler</groupId>
-            <artifactId>spring-boot-problem-autoconfigure</artifactId>
-            <version>${spring-boot-problem-autoconfigure.version}</version>
+            <groupId>io.github.officiallysingh</groupId>
+            <artifactId>spring-boot-problem-handler</artifactId>
+            <version>${spring-boot-problem-handler.version}</version>
         </dependency>
     </dependencies>
 

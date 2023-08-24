@@ -34,24 +34,4 @@ public class CreateStateRequest {
   @Pattern(regexp = GST_STATE_CODE)
   @Schema(description = "State GST Code, like 6 for Haryana", example = "6")
   private String gstCode;
-
-  @NotEmpty
-  @Pattern(regexp = REGEX_GSTIN)
-  @Schema(
-      description = "Goods and Services Tax Identification Number (GSTIN) for State",
-      example = "06AAACD1977A1Z3")
-  private String gstin;
-
-  @NotEmpty
-  @Pattern(regexp = REGEX_HSN_CODE)
-  @Schema(description = "Harmonized System of Nomenclature (HSN) Code for State", example = "9971")
-  private String hsnCode;
-
-  @Schema(description = "Whether its a Union Territory", nullable = true, example = "false")
-  private boolean isUT;
-
-  @NotEmpty
-  @Size(max = 256)
-  @Schema(description = "Nature of Service", example = "Other Financial and related services")
-  private String natureOfService;
 }

@@ -62,31 +62,7 @@ public class State {
   @Field(name = "gstCode")
   private String gstCode;
 
-  @NotEmpty
-  @Pattern(regexp = REGEX_GSTIN)
-  @Setter
-  @Field(name = "gstin")
-  private String gstin;
-
-  @NotEmpty
-  @Pattern(regexp = REGEX_HSN_CODE)
-  @Setter
-  @Field(name = "hsnCode")
-  private String hsnCode;
-
-  @NotNull
-  @Setter
-  @Field(name = "isUT")
-  private Boolean isUT;
-
-  @NotEmpty
-  @Size(max = 256)
-  @Setter
-  @Field(name = "natureOfService")
-  private String natureOfService;
-
-  public static State of(String code, String name, String gstCode, String gstin,
-                         String hsnCode, Boolean isUT, String natureOfService) {
-    return new State(null, null, code, name, gstCode, gstin, hsnCode, isUT, natureOfService);
+  public static State of(String code, String name, String gstCode) {
+    return new State(null, null, code, name, gstCode);
   }
 }

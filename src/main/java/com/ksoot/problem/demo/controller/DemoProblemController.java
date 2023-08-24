@@ -41,7 +41,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @Validated
 @RestController
 @Tag(name = "Problem Demo", description = "APIs")
-@RequestMapping("/static/problems")
+@RequestMapping("/problems")
 class DemoProblemController {
 
   @Operation(
@@ -65,18 +65,18 @@ class DemoProblemController {
   }
 
   @Operation(
-      summary = "Throws unchecked exception with annotated cause",
+      summary = "Throws unchecked exception with nested cause",
       tags = {"Problem Demo"})
-  @RequestMapping(path = "/handler-throwable-annotated-cause", method = GET)
-  Mono<ResponseEntity<String>> throwableAnnotatedCause() {
+  @RequestMapping(path = "/handler-throwable-nested", method = GET)
+  Mono<ResponseEntity<String>> throwableNestedCause() {
     throw new IllegalArgumentException("expected", new IllegalStateException(new MyException()));
   }
 
   @Operation(
-      summary = "Throws unchecked exception with annotated reason",
+      summary = "Throws unchecked exception with nested cause, cause intern has another cause",
       tags = {"Problem Demo"})
-  @RequestMapping(path = "/handler-throwable-annotated-reason", method = GET)
-  Mono<ResponseEntity<String>> throwableAnnotatedWithReason() {
+  @RequestMapping(path = "/handler-throwable-deep-nested", method = GET)
+  Mono<ResponseEntity<String>> throwableDeepNestedCause() {
     throw new MyExceptionWithReason(new IllegalArgumentException("expected", new IllegalStateException()));
   }
 

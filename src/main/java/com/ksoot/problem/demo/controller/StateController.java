@@ -1,5 +1,6 @@
 package com.ksoot.problem.demo.controller;
 
+import com.ksoot.problem.Problems;
 import com.ksoot.problem.demo.model.CreateStateRequest;
 import com.ksoot.problem.demo.model.State;
 import com.ksoot.problem.demo.model.StateResponse;
@@ -54,8 +55,7 @@ public class StateController {
   @PostMapping("/states")
   public Mono<ResponseEntity<Void>> createState(
       @Parameter(description = "Create State request", required = true) @RequestBody @Valid final CreateStateRequest request) {
-    State state = State.of(request.getCode(), request.getName(), request.getGstCode(), request.getGstin(),
-        request.getHsnCode(), request.isUT(), request.getNatureOfService());
+    State state = State.of(request.getCode(), request.getName(), request.getGstCode());
     return this.stateRepository.save(state).map(s -> ResponseEntity.created(linkTo(methodOn(StateController.class).getState(s.id())).withSelfRel()
         .toMono().block().toUri()).build());
   }
@@ -71,7 +71,6 @@ public class StateController {
         .findByIdOrCode(idOrCode)
         .map(StateResponse::of)
         .map(ResponseEntity::ok)
-        .switchIfEmpty(Mono.error(IllegalArgumentException::new));
-//        .switchIfEmpty(Mono.error(Problems::notFound));
+        .switchIfEmpty(Mono.error(Problems::notFound));
   }
 }
