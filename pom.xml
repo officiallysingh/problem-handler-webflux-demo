@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
+        <version>3.1.4</version>
         <relativePath/> <!-- lookup parent from repository 3.0.5,2022.0.2  -->
     </parent>
 
@@ -16,7 +16,7 @@
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
         <springdoc-openapi-starter-webflux-ui.version>2.1.0</springdoc-openapi-starter-webflux-ui.version>
-        <spring-boot-problem-handler.version>1.0</spring-boot-problem-handler.version>
+        <spring-boot-problem-handler.version>1.5</spring-boot-problem-handler.version>
     </properties>
 
     <dependencyManagement>

@@ -1,6 +1,6 @@
 package com.ksoot.problem.demo.controller;
 
-import com.ksoot.problem.Problems;
+import com.ksoot.problem.core.Problems;
 import com.ksoot.problem.demo.model.CreateStateRequest;
 import com.ksoot.problem.demo.model.State;
 import com.ksoot.problem.demo.model.StateResponse;
