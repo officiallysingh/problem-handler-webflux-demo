@@ -2,7 +2,6 @@ logs/
 **/*.log
 *.log
 **/application-local.properties
-src/main/resources/config/application-local.properties
 
 ### Maven ###
 target/
