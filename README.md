@@ -2,6 +2,16 @@
 
 ## Getting started
 
+### Docker compose
+If you have docker installed, then simply run the application in `docker` profile by passing `spring.profiles.active=docker` 
+as run time argument from your IDE.
+Depending on your current working directory in IDE, you may need to change `spring.docker.compose.file=problem-handler-webflux-demo/compose.yml`
+to `spring.docker.compose.file=compose.yml` in [**`application-docker.properties`**](src/main/resources/config/application-docker.properties)
+
+Make sure the host ports mapped in [**`Docker compose file`**](compose.yml) are available or change the ports and 
+do the respective changes in database configurations [**`application-docker.properties`**](src/main/resources/config/application-docker.properties)
+
+### Explicit Database configs
 Update following properties with your PostgresDB configurations
 
 ```properties

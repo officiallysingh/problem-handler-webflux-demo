@@ -96,14 +96,9 @@ public class AppInitializer {
             protocol, hostAddress, serverPort, contextPath);
     String activeProfiles = String.format("Profiles: \t\t\t\t%1$s%n\t", profiles);
 
-    boolean isProblemEnabled = env.getProperty("application.problem.enabled", Boolean.class, false);
-    boolean isProblemWeb = isProblemEnabled && webApplicationType == WebApplicationType.SERVLET;
+    boolean isProblemEnabled = env.getProperty("problem.enabled", Boolean.class, false);
     boolean problemHandling =
-        isProblemWeb
-            ? ClassUtils.doesClassExist(
-                "com.pchf.common.problem.spring.advice.web.ProblemHandlingWeb")
-            : ClassUtils.doesClassExist(
-                "com.pchf.common.problem.spring.advice.webflux.ProblemHandlingWebflux");
+            isProblemEnabled && ClassUtils.doesClassExist("com.ksoot.problem.core.Problem");
 
     boolean security =
         env.getProperty("application.security.enabled", Boolean.class, false)
