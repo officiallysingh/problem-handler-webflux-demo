@@ -28,7 +28,7 @@ Update following properties with your MongoDB configurations
 ```properties
 spring.data.mongodb.uri=${MONGODB_URL:mongodb://localhost:27017/problem_web_db}
 ```
-
+## Run
 Run the main class [`ProblemWebFluxDemoApplication`](src/main/java/com/ksoot/problem/demo/ProblemWebFluxDemoApplication.java)
 and access Swagger [`Swagger`](http://localhost:8080/swagger-ui.html) at http://localhost:8080/swagger-ui.html
 
@@ -41,7 +41,7 @@ Select `Application` from dropdown **Select a definition**
 * **State** and **Employee** management APIs are secured, so need to pass a JWT token in `Authorization` header. 
 See the lock symbol against the API in Swagger
 
-**Click on Authorize button** to pass the JWT Token. Use following as JWT Token.
+**Click on Authorize button** to pass the JWT Token. Use any valid JWT Token.
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 ```
