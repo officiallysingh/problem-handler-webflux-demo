@@ -16,7 +16,7 @@
         <java.version>21</java.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
         <springdoc-openapi-starter-webflux-ui.version>2.3.0</springdoc-openapi-starter-webflux-ui.version>
-        <spring-boot-problem-handler.version>1.6</spring-boot-problem-handler.version>
+        <spring-boot-problem-handler.version>1.7</spring-boot-problem-handler.version>
 
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
