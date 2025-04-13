@@ -27,6 +27,7 @@ import org.springframework.security.web.server.authorization.ServerAccessDeniedH
 class SecurityConfiguration {
 
     private final String[] SWAGGER_URLS = new String[]{"/swagger-resources/**", "/swagger-ui/**", "/swagger-ui.*", "/v3/api-docs", "/v3/api-docs/**", "/webjars/**"};
+//    private final String[] SWAGGER_URLS = new String[]{"/swagger-resources/**", "/swagger-ui/**", "/v3/api-docs", "/v3/api-docs/**", "/webjars/**"};
 
     private boolean actuatorBypassSecurity = true;
 
