@@ -2,14 +2,15 @@ package com.ksoot.problem.demo.config;
 
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
+import java.util.concurrent.Executor;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.task.TaskExecutionProperties;
 import org.springframework.boot.autoconfigure.task.TaskSchedulingProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.Ordered;
@@ -17,9 +18,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.mongodb.core.mapping.event.ValidatingMongoEventListener;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-import java.util.concurrent.Executor;
-
-@AutoConfiguration
+@Configuration
 @EnableConfigurationProperties(
     value = {TaskExecutionProperties.class, TaskSchedulingProperties.class})
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)

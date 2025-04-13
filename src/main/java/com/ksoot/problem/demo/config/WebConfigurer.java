@@ -8,7 +8,11 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.web.reactive.ReactiveMultipartProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.i18n.LocaleContext;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.env.Environment;
 import org.springframework.http.codec.HttpMessageReader;
 import org.springframework.http.codec.ServerCodecConfigurer;
@@ -17,8 +21,14 @@ import org.springframework.http.codec.json.Jackson2JsonEncoder;
 import org.springframework.http.codec.multipart.DefaultPartHttpMessageReader;
 import org.springframework.http.codec.multipart.MultipartHttpMessageReader;
 import org.springframework.http.codec.multipart.Part;
+import org.springframework.http.server.reactive.HttpHandler;
+import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
+import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.adapter.HttpWebHandlerAdapter;
+import org.springframework.web.server.adapter.WebHttpHandlerBuilder;
 
 /**
  * @author Rajveer Singh
@@ -81,4 +91,26 @@ public class WebConfigurer implements WebFluxConfigurer {
 
 //	private final ObjectProvider<HandlerMethodArgumentResolver> argumentResolvers;
 //	this.argumentResolvers.orderedStream().forEach(configurer::addCustomResolver);
+
+
+  @Bean
+  public HttpHandler httpHandler(ApplicationContext applicationContext) {
+    LocaleContextHolder.getLocaleContext().getLocale();
+    HttpHandler delegate = WebHttpHandlerBuilder
+            .applicationContext(applicationContext).build();
+    return new HttpWebHandlerAdapter(((HttpWebHandlerAdapter) delegate)) {
+      @Override
+      protected ServerWebExchange createExchange(ServerHttpRequest request,
+                                                 ServerHttpResponse response) {
+        ServerWebExchange serverWebExchange = super
+                .createExchange(request, response);
+        LocaleContext localeContext = serverWebExchange.getLocaleContext();
+        if (localeContext != null) {
+          LocaleContextHolder.setLocaleContext(localeContext, true);
+//          LocaleContextHolder.setLocaleContext(localeContext);
+        }
+        return serverWebExchange;
+      }
+    };
+  }
 }
