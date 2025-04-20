@@ -88,11 +88,11 @@ public class AppInitializer {
             env.getProperty("spring.application.name"), webApplicationType);
     String localUrl =
         String.format(
-            "Access Local: \t\t\t%1$s://localhost:%2$s%3$s/swagger-ui.html%n\t",
+            "Access Local: \t\t\t%1$s://localhost:%2$s%3$s/swagger-ui/index.html%n\t",
             protocol, serverPort, contextPath);
     String externalUrl =
         String.format(
-            "Access External: \t\t%1$s://%2$s:%3$s%4$s/swagger-ui.html%n\t",
+            "Access External: \t\t%1$s://%2$s:%3$s%4$s/swagger-ui/index.html%n\t",
             protocol, hostAddress, serverPort, contextPath);
     String activeProfiles = String.format("Profiles: \t\t\t\t%1$s%n\t", profiles);
 

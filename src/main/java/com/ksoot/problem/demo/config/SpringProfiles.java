@@ -98,6 +98,6 @@ public class SpringProfiles {
   }
 
   public static Set<String> exclusiveProfiles() {
-    return Set.of(FALLBACK_DEFAULT_PROFILE, LOCAL, DOCKER, DEVELOPMENT, PREPROD, PRODUCTION);
+    return Set.of(FALLBACK_DEFAULT_PROFILE, LOCAL, DOCKER, DEVELOPMENT, PREPROD, PRODUCTION, TEST);
   }
 }
